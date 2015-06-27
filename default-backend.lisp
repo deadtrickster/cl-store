@@ -514,7 +514,7 @@ Binding this variable to true only affects storing and makes no difference when 
 (defun restore-type-object (stream)
   (declare (optimize speed))
   (let* ((class (find-class (restore-object stream)))
-         (new-instance (allocate-instance class)))
+         (new-instance (make-instance class)))
     (resolving-object (obj new-instance)
       (loop for count from 0 do
             (let ((slot-name (restore-object stream)))
